@@ -1,0 +1,42 @@
+<link rel="import" href="wc-item.html">
+<dom-module id="wc-category-items">
+  <template>
+    <style is="custom-style">
+      .flex {
+        @apply(--layout-horizontal);
+      }
+    </style>
+    <div id="wrapper-category-items">
+      <template
+           is="dom-repeat" 
+           items="{{items}}" 
+           as="item">
+                <wc-item class="item flex"
+                  name="{{item.name}}"
+                  category="{{item.category}}"
+                  image="{{item.image}}"
+                  price ="{{item.price}}">
+                </wc-item>
+        </template>
+    </div>
+  </template>
+  <script>
+    HTMLImports.whenReady(function () {
+      Polymer({
+        is: 'wc-category-items',
+        ready: function(){
+          console.log("HOLA");
+        },
+        properties : {
+            items : {
+                type     : Array,
+                value    : function () { return []; }
+            }
+        },
+        ready: function(){
+          console.log("This.items : ", this.items);
+        }
+      });
+    });
+ </script>
+</dom-module>

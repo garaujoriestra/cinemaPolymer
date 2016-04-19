@@ -1,0 +1,43 @@
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="wc-category-items.html">
+<dom-module id="wc-carrousel">
+  <template>
+    <div id="wrapper-carrousel">
+      <iron-ajax id="ajax"
+        auto
+        url="/app/data/items.json"
+        handle-as="text"
+        on-response="load"
+        debounce-duration="300"></iron-ajax>
+
+        <div class="container flex-center-justified">
+            <h1>Categoria 1</h1>
+        </div>
+        <div class="container flex-center-justified">
+            <div class="row">
+              <wc-category-items
+                  items="{{items}}">
+              </wc-category-items>
+            </div>
+        </div>
+    </div>
+  </template>
+  <script>
+    HTMLImports.whenReady(function () {
+      Polymer({
+        is: 'wc-carrousel',
+        properties: {
+          items : {
+              type     : Array,
+              value    : function () { return []; },
+              notify   : true,
+          }
+        },
+        load : function (data) {
+            this.items = JSON.parse (data.detail.response);
+            console.log("Me devuelven del iron-ajax : ", this.items);
+        }
+      });
+    });
+  </script>
+</dom-module>

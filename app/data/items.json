@@ -1,0 +1,41 @@
+[{
+    "name"       : "gafa negra",
+    "category"   : "gafas",
+    "image"      : "http://placehold.it/150x150/FFC107/000000",
+    "price"      : "20$"
+},{
+    "name"       : "gafa roja",
+    "category"   : "gafas",
+    "image"      : "http://placehold.it/150x150/FFC107/000000",
+    "price"      : "21$"
+},{
+    "name"       : "gafa amarilla",
+    "category"   : "gafas",
+    "image"      : "http://placehold.it/150x150/FFC107/000000",
+    "price"      : "22$"
+},{
+    "name"       : "gafa verde",
+    "category"   : "gafas",
+    "image"      : "http://placehold.it/150x150/FFC107/000000",
+    "price"      : "23$"
+},{
+    "name"       : "gafa verde",
+    "category"   : "gafas",
+    "image"      : "http://placehold.it/150x150/FFC107/000000",
+    "price"      : "23$"
+},{
+    "name"       : "gafa verde",
+    "category"   : "gafas",
+    "image"      : "http://placehold.it/150x150/FFC107/000000",
+    "price"      : "23$"
+},{
+    "name"       : "gafa verde",
+    "category"   : "gafas",
+    "image"      : "http://placehold.it/150x150/FFC107/000000",
+    "price"      : "23$"
+},{
+    "name"       : "gafa azul",
+    "category"   : "gafas",
+    "image"      : "http://placehold.it/150x150/FFC107/000000",
+    "price"      : "24$"
+}]

@@ -1,0 +1,38 @@
+<dom-module id="wc-item">
+
+<template>
+    <style is="custom-style">
+        .item-header  { @apply(--paper-font-headline); }
+        .item-light   { color: var(--paper-grey-600); }
+        .item-reserve { color: var(--google-blue-500); }
+        iron-icon.star {
+            --iron-icon-width: 16px;
+            --iron-icon-height: 16px;
+            color: var(--paper-amber-500);
+        }
+        iron-icon.star:last-of-type { color: var(--paper-grey-500); }
+    </style>
+    
+    <paper-card image="{{image}}">
+        <div class="card-content">
+            <div class="item-header">{{name}}</div>
+            <p>{{category}}</p>
+            <p class="item-light">{{price}}</p>
+        </div>
+    </paper-card>
+</template>
+
+<script> 
+    Polymer ({
+        is : 'wc-item',
+        
+        properties : {
+            name : String,
+            category : String,
+            image : String,
+            price : String
+        }
+    });
+</script>
+ 
+</dom-module>
