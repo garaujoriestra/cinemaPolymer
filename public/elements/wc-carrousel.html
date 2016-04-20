@@ -5,19 +5,24 @@
     <div id="wrapper-carrousel">
       <iron-ajax id="ajax"
         auto
-        url="/cinemaPolymer/app/data/{{category}}/data.json"
+        url="/api/subcategorias/{{nameCategoria}}"
         handle-as="json"
         on-response="load"
         debounce-duration="300"></iron-ajax>
 
         <div class="container flex-center-justified">
-            <h1>Categoria 1</h1>
+            <h1>{{nameCategoria}}</h1>
         </div>
         <div class="container flex-center-justified">
             <div class="row">
-              <wc-category-items
-                  items="{{items}}">
-              </wc-category-items>
+               <template
+               is="dom-repeat" 
+               items="{{items}}" 
+               as="item">
+
+                    <wc-category-items name="{{item.subcategoria}}">
+                    </wc-category-items>
+            </template>
             </div>
         </div>
     </div>
@@ -30,19 +35,27 @@
           items : {
               type     : Array,
               value    : function () { return []; },
-              notify   : true,
+              notify   : true
           },
           category : {
             type: String,
             value: "",
-            observer: 'whenCategory'
+            observer: 'whenCategory',
+            notify   : true
+          },
+          nameCategoria: {
+            type: String,
+            value: "",
+            notify   : true
           }
         },
         load : function (data) {
-            this.items =data.detail.response;
+          console.log("Lo que recibo en data ahora es :", data.detail.response.rows);
+          this.items = data.detail.response.rows;
         },
         whenCategory: function(after, before){
           this.category = after;
+          this.nameCategoria = after;
         }
 
       });

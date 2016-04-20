@@ -11,15 +11,21 @@
             color: var(--paper-amber-500);
         }
         iron-icon.star:last-of-type { color: var(--paper-grey-500); }
+        .wrapper-paper-card{
+            width: 20%;
+            display: inline-block;
+        }
     </style>
     
-    <paper-card image="{{image}}">
-        <div class="card-content">
-            <div class="item-header">{{name}}</div>
-            <p>{{category}}</p>
-            <p class="item-light">{{price}}</p>
-        </div>
-    </paper-card>
+    <div class="wrapper-paper-card">
+        <paper-card image="{{image}}">
+            <div class="card-content">
+                <div class="item-header">{{name}}</div>
+                <p>{{category}}</p>
+                <p class="item-light">{{price}}</p>
+            </div>
+        </paper-card>
+    </div>
 </template>
 
 <script> 

@@ -13,21 +13,33 @@
           overflow: hidden;
       }
     </style>
+
+    <iron-ajax
+    auto
+      url="/api/items/{{name}}"
+      handle-as="json"
+      on-response="load"
+      debounce-duration="500"></iron-ajax>
+
+     <div class="container flex-center-justified">
+        <h3>{{name}}</h3>
+    </div>
     <div class="col-sm-1">
       <button on-tap="onTapLeft">Left</button>
     </div>
     <div class="col-sm-10">
       <div id="container-category-items">
         <div id="wrapper-category-items">
+
           <template
                is="dom-repeat" 
                items="{{items}}" 
                as="item">
                     <wc-item class=""
-                      name="{{item.name}}"
-                      category="{{item.category}}"
-                      image="{{item.image}}"
-                      price ="{{item.price}}">
+                      name="{{item.nombre}}"
+                      category="{{item.nameSub}}"
+                      image="{{item.imagen}}"
+                      price ="{{item.precio}}">
                     </wc-item>
             </template>
         </div>
@@ -50,12 +62,21 @@
                 value    : function () { return []; },
                 observer: 'whenItems',
                 notify: true
+            },
+            name : {
+              type:String,
+              value: "",
+              observer: 'whenName',
+              notify: true
             }
         },
         whenItems: function(){
           anchoMaximo = this.items.length * 200;
           this.customStyle['--anchoMaximo'] = anchoMaximo + 'px';
           this.updateStyles();
+        },
+        whenName: function(){
+          
         },
         ready: function(){
           this.async(function(){
@@ -65,17 +86,20 @@
           }, 500);
          
         },
+        load : function (data) {
+          console.log("WhenName",data.detail.response.rows);
+          this.items = data.detail.response.rows;
+        },
         onTapLeft : function(){
           if(move < 0){
             move = move + 200;
           }else{
             move = 0;
           }
-          
-          
           this.customStyle['--translate'] = 'translate3d('+move+'px, 0px, 0px)';
           this.updateStyles();
         },
+
         onTapRight: function(){
           move = (move - 200);
           this.customStyle['--translate'] = 'translate3d('+move+'px, 0px, 0px)';
