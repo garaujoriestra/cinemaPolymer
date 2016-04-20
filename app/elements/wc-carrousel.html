@@ -5,8 +5,8 @@
     <div id="wrapper-carrousel">
       <iron-ajax id="ajax"
         auto
-        url="/app/data/items.json"
-        handle-as="text"
+        url="/cinemaPolymer/app/data/{{category}}/data.json"
+        handle-as="json"
         on-response="load"
         debounce-duration="300"></iron-ajax>
 
@@ -31,12 +31,20 @@
               type     : Array,
               value    : function () { return []; },
               notify   : true,
+          },
+          category : {
+            type: String,
+            value: "",
+            observer: 'whenCategory'
           }
         },
         load : function (data) {
-            this.items = JSON.parse (data.detail.response);
-            console.log("Me devuelven del iron-ajax : ", this.items);
+            this.items =data.detail.response;
+        },
+        whenCategory: function(after, before){
+          this.category = after;
         }
+
       });
     });
   </script>

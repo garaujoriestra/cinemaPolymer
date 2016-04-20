@@ -1,0 +1,29 @@
+<link rel="import" href="wc-title-category.html">
+<dom-module id="wc-selector">
+	<template>
+		
+		<div id="wrapper-selector" on-tap="onTap">
+			<content></content>
+		</div>
+		<style>
+		</style>	
+	</template>
+	<script>
+		(function(){
+			Polymer ({
+				is : "wc-selector",
+				properties: {
+					data: {
+						type : Array,
+						notify : true
+					}
+				},
+				ready: function(){
+				},
+				onTap: function(e){
+					this.data = e.target.innerHTML;
+				}
+			});
+		})();
+	</script>
+</dom-module>

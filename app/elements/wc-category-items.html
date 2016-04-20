@@ -1,40 +1,85 @@
 <link rel="import" href="wc-item.html">
 <dom-module id="wc-category-items">
   <template>
-    <style is="custom-style">
-      .flex {
-        @apply(--layout-horizontal);
+    <style >
+      #wrapper-category-items{
+        width: var(--anchoMaximo);
+        transform: var(--translate,translate3d(0px, 0px, 0px));
+        transition: 1s;
+      }
+      #container-category-items{
+          max-width: 100%;
+          display: inline-block;
+          overflow: hidden;
       }
     </style>
-    <div id="wrapper-category-items">
-      <template
-           is="dom-repeat" 
-           items="{{items}}" 
-           as="item">
-                <wc-item class="item flex"
-                  name="{{item.name}}"
-                  category="{{item.category}}"
-                  image="{{item.image}}"
-                  price ="{{item.price}}">
-                </wc-item>
-        </template>
+    <div class="col-sm-1">
+      <button on-tap="onTapLeft">Left</button>
     </div>
+    <div class="col-sm-10">
+      <div id="container-category-items">
+        <div id="wrapper-category-items">
+          <template
+               is="dom-repeat" 
+               items="{{items}}" 
+               as="item">
+                    <wc-item class=""
+                      name="{{item.name}}"
+                      category="{{item.category}}"
+                      image="{{item.image}}"
+                      price ="{{item.price}}">
+                    </wc-item>
+            </template>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-1">
+      <button on-tap="onTapRight">Right</button>
+   </div>
   </template>
   <script>
     HTMLImports.whenReady(function () {
+      var anchoMaximo = 0;
+      var move = 0;
       Polymer({
+        
         is: 'wc-category-items',
-        ready: function(){
-          console.log("HOLA");
-        },
         properties : {
             items : {
                 type     : Array,
-                value    : function () { return []; }
+                value    : function () { return []; },
+                observer: 'whenItems',
+                notify: true
             }
         },
+        whenItems: function(){
+          anchoMaximo = this.items.length * 200;
+          this.customStyle['--anchoMaximo'] = anchoMaximo + 'px';
+          this.updateStyles();
+        },
         ready: function(){
-          console.log("This.items : ", this.items);
+          this.async(function(){
+            anchoMaximo = this.items.length * 200;
+            this.customStyle['--anchoMaximo'] = anchoMaximo + 'px';
+            this.updateStyles();
+          }, 500);
+         
+        },
+        onTapLeft : function(){
+          if(move < 0){
+            move = move + 200;
+          }else{
+            move = 0;
+          }
+          
+          
+          this.customStyle['--translate'] = 'translate3d('+move+'px, 0px, 0px)';
+          this.updateStyles();
+        },
+        onTapRight: function(){
+          move = (move - 200);
+          this.customStyle['--translate'] = 'translate3d('+move+'px, 0px, 0px)';
+          this.updateStyles();
         }
       });
     });

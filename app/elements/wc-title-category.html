@@ -1,0 +1,21 @@
+<dom-module id="wc-title-category">
+	<template>
+		<button class="btn btn-default">{{category}}</button>
+		<style>
+		</style>	
+	</template>
+	<script>
+		(function(){
+			Polymer ({
+				is : "wc-title-category",
+				properties: {
+					category: {
+						type : String,
+						value: "",
+						notify: true
+					}
+				}
+			});
+		})();
+	</script>
+</dom-module>
