@@ -4,131 +4,123 @@ var router = express.Router();
 
 var items = [
 		{
-			"idSub": "1",
 			"nameSub" : "Gafas",
-			"id": "1",
 			"nombre": "Gafa negra",
-			"imagen":"http://www.robertomartin.com/fotos-gafas/RB9936M.jpg",
-			"precio": "200"
+			"imagen":"https://cdn.shopify.com/s/files/1/0302/4437/products/O23_-_Diamond_Black_Dark_One_1024x1024.jpg?v=1455547959",
+			"precio": "25"
 		},
 		{
-			"idSub": "1",
 			"nameSub" : "Gafas",
-			"id": "2",
 			"nombre": "Gafa verde",
-			"imagen":"http://www.robertomartin.com/fotos-gafas/RB3493M.jpg",
-			"precio": "200"
+			"imagen":"https://cdn.shopify.com/s/files/1/0302/4437/products/fusion_emerald_0f6a0067-540b-43a4-a706-7b9a579af01c_1024x1024.jpg?v=1433874294",
+			"precio": "25"
 		},
 		{
-			"idSub": "1",
 			"nameSub" : "Gafas",
-			"id": "3",
 			"nombre": "Gafa roja",
-			"imagen":"http://www.opticasobrarbe.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/g/a/gafas_de_sol_ray-ban_rb_3025_aviator_004_78_55_montura_gris_met_lico_-_lente_azul_degradado_a_gris_polarizada.jpg",
-			"precio": "200"
+			"imagen":"https://cdn.shopify.com/s/files/1/0302/4437/products/C13_-_Diamond_Black_Ruby_Classic_lateral_1024x1024.jpg?v=1459491374",
+			"precio": "25"
 		},
 		{
-			"idSub": "1",
 			"nameSub" : "Gafas",
-			"id": "4",
 			"nombre": "Gafa azul",
-			"imagen":"http://st-listas.20minutos.es/images/2014-08/385274/4512031_640px.jpg?1406971479",
-			"precio": "200"
+			"imagen":"https://cdn.shopify.com/s/files/1/0302/4437/products/C03_1024x1024.jpg?v=1446157710",
+			"precio": "25"
 		},
 		{
-			"idSub": "2",
+			"nameSub" : "Gafas",
+			"nombre": "Gafa amarilla",
+			"imagen":"https://cdn.shopify.com/s/files/1/0302/4437/products/Diamond-Black-Daylight-Classic_1024x1024.jpg?v=1458733595",
+			"precio": "25"
+		},
+		{
 			"nameSub" : "Camisas",
-			"id": "5",
 			"nombre": "Camisa verde",
-			"imagen":"http://www.sibaritissimo.com/wp-content/uploads/2010/06/Gafas-de-Sol-Carrera-01-Champion.jpg",
-			"precio": "200"
+			"imagen":"http://lp2.hm.com/hmprod?set=source[/model/2016/C00%200256162%20044%2066%201874.jpg],type[STILLLIFE_FRONT]&hmver=3&call=url[file:/product/listing]",
+			"precio": "30"
 		},
 		{
-			"idSub": "2",
 			"nameSub" : "Camisas",
-			"id": "6",
 			"nombre": "Camisa azul",
-			"imagen":"http://www.opticalling.com/wordpress/wp-content/uploads/2014/04/CARRERA-5014-S-8QD-Z0.jpg",
-			"precio": "200"
+			"imagen":"http://lp2.hm.com/hmprod?set=source[/model/2016/C00%200356685%20002%2038%202717.jpg],type[STILLLIFE_FRONT]&hmver=2&call=url[file:/product/listing]",
+			"precio": "30"
 		},
 		{
-			"idSub": "2",
 			"nameSub" : "Camisas",
-			"id": "7",
 			"nombre": "Camisa roja",
-			"imagen":"http://www.opticasobrarbe.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/g/a/gafas_de_sol_ray-ban_rb_3025_aviator_004_78_55_montura_gris_met_lico_-_lente_azul_degradado_a_gris_polarizada.jpg",
-			"precio": "200"
+			"imagen":"http://lp2.hm.com/hmprod?set=source[/model/2016/D00%200384185%20001%2014%203430.jpg],type[STILLLIFE_FRONT]&hmver=2&call=url[file:/product/listing]",
+			"precio": "30"
 		},
 		{
-			"idSub": "2",
 			"nameSub" : "Camisas",
-			"id": "8",
 			"nombre": "Camisa negra",
-			"imagen":"http://img1.designerseven.com/oscommerce/images/viewerxxl/carrerasunglassesCarrera15XDYFF_1/carrerasunglassesCarrera15XDYFF_1_3.jpg",
+			"imagen":"http://lp2.hm.com/hmprod?set=source[/model/2016/C00%200387106%20001%2062%200310.jpg],type[STILLLIFE_FRONT]&hmver=2&call=url[file:/product/listing]",
+			"precio": "35"
+		},
+		{
+			"nameSub" : "Camisas",
+			"nombre": "Camisa blanca",
+			"imagen":"http://lp2.hm.com/hmprod?set=source[/model/2016/C00%200258350%20001%2028%200119.jpg],type[STILLLIFE_FRONT]&hmver=1&call=url[file:/product/listing]",
+			"precio": "35"
+		},
+		{
+			"nameSub" : "Camisas",
+			"nombre": "Camisa gris",
+			"imagen":"http://lp2.hm.com/hmprod?set=source[/model/2016/C00%200356665%20003%2012%202870.jpg],type[STILLLIFE_FRONT]&hmver=2&call=url[file:/product/listing]",
+			"precio": "35"
+		},
+		{
+			"nameSub" : "Camisas",
+			"nombre": "Camisa multicolor",
+			"imagen":"http://lp2.hm.com/hmprod?set=source[/model/2016/C00%200381982%20001%2087%202818.jpg],type[STILLLIFE_FRONT]&hmver=1&call=url[file:/product/listing]",
+			"precio": "35"
+		},
+		{
+			"nameSub" : "Coches",
+			"nombre": "Coche amarillo",
+			"imagen":"http://i.kinja-img.com/gawker-media/image/upload/s--vykaFdXp--/18sg2cyzub5wjpng.png",
 			"precio": "200"
 		},
 		{
-			"idSub": "3",
 			"nameSub" : "Coches",
-			"id": "9",
 			"nombre": "Coche rojo",
-			"imagen":"http://www.quadis.es/image/image_gallery?img_id=188504&t=1460993860066",
+			"imagen":"http://www.wjking.co.uk/images/new-vehicle-photos/vauxhall-corsa.png",
 			"precio": "200"
 		},
 		{
-			"idSub": "3",
 			"nameSub" : "Coches",
-			"id": "10",
 			"nombre": "Coche negro",
-			"imagen":"https://www.mercedes-benz.com/wp-content/uploads/sites/3/2014/08/F_015_Teaser_bild.jpg",
+			"imagen":"http://images.elite-auto.fr/visuel/OPEL/opel_16corsacosmo3ha5b_angularfront.png",
 			"precio": "200"
 		},
 		{
-			"idSub": "3",
 			"nameSub" : "Coches",
-			"id": "11",
-			"nombre": "Coche azul",
-			"imagen":"http://www.caranddriverthef1.com/sites/default/files/node_articulomotor_imagen/mercedes-slc-4.jpg",
+			"nombre": "Coche blanco",
+			"imagen":"http://www.royalcityrentacar.com//resim/cceff8faa855336ad53b3325914caea2.png",
 			"precio": "200"
 		},
 		{
-			"idSub": "3",
-			"nameSub" : "Coches",
-			"id": "12",
-			"nombre": "Coche verde",
-			"imagen":"http://staticpro-wpmu.atresmedia.com/wp-content/uploads/sites/3/2016/03/17122001/mercedes-amg-gle-coupe-policia-2016-01-960x384.jpg",
-			"precio": "200"
-		},
-		{
-			"idSub": "4",
 			"nameSub" : "Motos",
-			"id": "13",
-			"nombre": "Moto roja",
-			"imagen":"http://images.hgmsites.net/hug/honda-accord-sdn_100519934_h.jpg",
+			"nombre": "Moto amarilla",
+			"imagen":"http://cdn.toyplanet.es/113829-thickbox/moto-winner.jpg",
 			"precio": "200"
 		},
 		{
-			"idSub": "4",
 			"nameSub" : "Motos",
-			"id": "14",
-			"nombre": "Moto verde",
-			"imagen":"http://i.ndtvimg.com/i/2016-02/honda-accord-hybrid-827_827x510_71454494191.jpg",
+			"nombre": "Moto multicolor",
+			"imagen":"http://www.sensacional.cl/media/catalog/product/cache/1/image/650x/040ec09b1e35df139433887a97daa66f/i/m/img_20150813_171705.png",
 			"precio": "200"
 		},
 		{
-			"idSub": "4",
 			"nameSub" : "Motos",
-			"id": "15",
 			"nombre": "Moto azul",
-			"imagen":"http://www.peelhonda.com.au/wp-content/uploads/2015/07/H-Accord.jpg",
+			"imagen":"http://cdn.toyplanet.es/117430-thickbox/avengers-trimoto-waves-6v.jpg",
 			"precio": "200"
 		},
 		{
-			"idSub": "4",
 			"nameSub" : "Motos",
-			"id": "16",
 			"nombre": "Moto negra",
-			"imagen":"http://www.buscatuning.com/blog/fotos/marcas/honda/accord/accord01.jpg",
+			"imagen":"http://cdn.toyplanet.es/113830-thickbox/moto-wind-repsol-6v.jpg",
 			"precio": "200"
 		}
 		

@@ -1,0 +1,48 @@
+<dom-module id="wc-item-carrito">
+
+<template>
+    <style>
+        .wrapper-item-carrito{
+            border: 2px solid #ccc;
+
+        }
+        .wrapper-imagen{
+            max-width: 50%;
+            display: inline;
+        }
+        .wrapper-info-product{
+            width: 50%;
+            display: inline;
+        }
+        .img-product{
+            width: 50%;
+            height: auto;
+        }
+    </style>
+    <div class="wrapper-item-carrito">
+        <div class="wrapper-imagen img-responsive">
+            <img src="{{imagen}}" width="50" height="50" alt="" class="img-product">
+        </div>
+        <div class="wrapper-info-product">
+            <span class="text-primary nombre-producto">{{nombre}}</span>
+            <span class="text-danger precio-producto">{{precio}}</span>
+        </div>
+    </div>
+</template>
+
+<script> 
+    WCItemCarrito = Polymer ({
+        is : 'wc-item-carrito',
+        
+        properties : {
+            nameSub: {type:String},
+            nombre: {type:String},
+            imagen: {type:String},
+            precio: {type:String}
+        },
+        ready: function(){
+        }
+    });
+</script>
+ 
+</dom-module>

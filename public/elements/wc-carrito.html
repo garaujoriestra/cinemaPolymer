@@ -1,0 +1,72 @@
+<link rel="import" href="wc-item-carrito.html">
+<dom-module id="wc-carrito">
+	<template>
+		<span on-mouseover='onHovered' 
+            on-mouseout='onUnhovered'
+            class="carrito pull-right">
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+      </span>
+		<div id="wrapper-carrito" class="myHidden">
+			
+			 <template
+	           is="dom-repeat" 
+	           items="{{items}}" 
+	           as="item">
+	            <wc-item-carrito 
+	            	nameSub="{{item.nameSub}}"
+	            	nombre="{{item.nombre}}"
+	            	imagen="{{item.imagen}}"
+	            	precio="{{item.precio}}"
+	            	></wc-item-carrito>
+	        </template>
+		</div>
+		<style>
+			:host{
+				position: fixed;
+				top: 100px;
+				z-index: 999;
+				width: 30%;
+			}
+			::content{
+				
+			}
+			#wrapper-carrito{
+				background-color: #ccc;
+				position: relative;
+				top: 50px;
+				right: 50px;
+			}
+			.myHidden{
+				display: none;
+			}
+			.carrito{
+		        font-size: 30px;
+		    }
+		</style>	
+	</template>
+	<script>
+		(function(){
+			Polymer ({
+				is : "wc-carrito",
+				properties: {
+					items : {
+			            type     : Array,
+			            value    : function () { return []; },
+			            notify   : true
+			        },
+				},
+				ready : function(){
+				},
+				add:function(item){
+					this.push("items", item);
+				},
+				onHovered: function(){
+					this.$['wrapper-carrito'].classList.remove('myHidden');
+				},
+				onUnhovered: function(){
+					this.$['wrapper-carrito'].classList.add('myHidden');
+				}
+			});
+		})();
+	</script>
+</dom-module>

@@ -1,8 +1,13 @@
 <link rel="import" href="wc-carrousel.html">
 <link rel="import" href="wc-selector.html">
+<link rel="import" href="wc-carrito.html">
+<link rel="import" href="wc-wrapper-carrito.html">
 <link rel="import" href="wc-title-category.html">
 <dom-module id="wc-base">
   <template>
+    <style>
+
+    </style>
       <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
           <div class="navbar-header">
@@ -19,15 +24,31 @@
                 <wc-title-category category="moda"></wc-title-category>
                 <wc-title-category category="motor"></wc-title-category>
             </wc-selector>
+            
+            
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
       </nav>
       
       <div class="main">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-8"></div>
+            <div class="col-sm-4">
+              <wc-carrito id="carrito">
+              
+            </wc-carrito>
+            </div>
+            
+          </div>
+        </div>
         <div class="container">
           <div class="row">
             <div class="col-xs-12">
-              <wc-carrousel category="[[category]]"></wc-carrousel>
+              
+              <wc-wrapper-carrito carrito="{{carrito}}">
+                <wc-carrousel category="[[category]]"></wc-carrousel>
+              </wc-wrapper-carrito>
             </div>
           </div>
         </div>
@@ -37,6 +58,15 @@
     HTMLImports.whenReady(function () {
       Polymer({
         is: 'wc-base',
+        properties: {
+          carrito: {
+            type: Object,
+            value: ""
+          },
+        },
+        ready: function(){
+          this.carrito = this.$.carrito;
+        }
       });
     });
   </script>

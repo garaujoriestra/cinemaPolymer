@@ -2,6 +2,11 @@
 <link rel="import" href="wc-category-items.html">
 <dom-module id="wc-carrousel">
   <template>
+    <style>
+      h1{
+        text-align: center;
+      }
+    </style>
     <div id="wrapper-carrousel">
       <iron-ajax id="ajax"
         auto
@@ -11,7 +16,7 @@
         debounce-duration="300"></iron-ajax>
 
         <div class="container flex-center-justified">
-            <h1>{{nameCategoria}}</h1>
+            <h1 class="text-primary">{{nameCategoria}}</h1>
         </div>
         <div class="container flex-center-justified">
             <div class="row">
@@ -19,9 +24,8 @@
                is="dom-repeat" 
                items="{{items}}" 
                as="item">
-
-                    <wc-category-items name="{{item.subcategoria}}">
-                    </wc-category-items>
+                <wc-category-items name="{{item.subcategoria}}">
+                </wc-category-items>
             </template>
             </div>
         </div>
@@ -50,7 +54,6 @@
           }
         },
         load : function (data) {
-          console.log("Lo que recibo en data ahora es :", data.detail.response.rows);
           this.items = data.detail.response.rows;
         },
         whenCategory: function(after, before){

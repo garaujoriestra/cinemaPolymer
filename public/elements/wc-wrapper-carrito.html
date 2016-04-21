@@ -1,0 +1,28 @@
+<link rel="import" href="wc-item-carrito.html">
+<dom-module id="wc-wrapper-carrito">
+	<template>
+		<div id="wrapper-wrapper-carrito" on-wc-item-comprar="onWcItemComprar">
+			<content></content>
+		</div>
+		<style>
+		</style>	
+	</template>
+	<script>
+		(function(){
+			Polymer ({
+				is : "wc-wrapper-carrito",
+				properties: {
+					carrito : {
+						type: String,
+						value: ""
+					}
+				},
+				ready : function(){
+				},
+				onWcItemComprar : function(e,detail){
+					this.carrito.add(detail);
+ 				}
+			});
+		})();
+	</script>
+</dom-module>

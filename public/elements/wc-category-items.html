@@ -12,6 +12,18 @@
           display: inline-block;
           overflow: hidden;
       }
+      :host{
+        display: inline-block;
+        border: 2px solid #ccc;
+        max-width: 100%;
+      }
+      h3{
+        text-align: center;
+      }
+      /*.btn-arrow{
+        position: relative;
+        top: 100px;
+      }*/
     </style>
 
     <iron-ajax
@@ -22,10 +34,10 @@
       debounce-duration="500"></iron-ajax>
 
      <div class="container flex-center-justified">
-        <h3>{{name}}</h3>
+        <h3 class="text-danger">{{name}}</h3>
     </div>
     <div class="col-sm-1">
-      <button on-tap="onTapLeft">Left</button>
+      <button on-tap="onTapLeft" class="btn-arrow"><iron-icon icon="icons:arrow-back"></iron-icon></button>
     </div>
     <div class="col-sm-10">
       <div id="container-category-items">
@@ -36,6 +48,7 @@
                items="{{items}}" 
                as="item">
                     <wc-item class=""
+                      item="{{item}}"
                       name="{{item.nombre}}"
                       category="{{item.nameSub}}"
                       image="{{item.imagen}}"
@@ -46,7 +59,7 @@
       </div>
     </div>
     <div class="col-sm-1">
-      <button on-tap="onTapRight">Right</button>
+      <button on-tap="onTapRight" class="btn-arrow"><iron-icon icon="icons:arrow-forward"></iron-icon></button>
    </div>
   </template>
   <script>
@@ -71,7 +84,7 @@
             }
         },
         whenItems: function(){
-          anchoMaximo = this.items.length * 200;
+          anchoMaximo = (this.items.length * 310) + 25;
           this.customStyle['--anchoMaximo'] = anchoMaximo + 'px';
           this.updateStyles();
         },
@@ -80,19 +93,18 @@
         },
         ready: function(){
           this.async(function(){
-            anchoMaximo = this.items.length * 200;
+            anchoMaximo = (this.items.length * 310) + 25;
             this.customStyle['--anchoMaximo'] = anchoMaximo + 'px';
             this.updateStyles();
           }, 500);
          
         },
         load : function (data) {
-          console.log("WhenName",data.detail.response.rows);
           this.items = data.detail.response.rows;
         },
         onTapLeft : function(){
           if(move < 0){
-            move = move + 200;
+            move = move + 300;
           }else{
             move = 0;
           }
@@ -101,7 +113,7 @@
         },
 
         onTapRight: function(){
-          move = (move - 200);
+          move = (move - 300);
           this.customStyle['--translate'] = 'translate3d('+move+'px, 0px, 0px)';
           this.updateStyles();
         }
